@@ -1,6 +1,4 @@
-# Learn_React
-
-Learn React
+# Learn React
 
 ## 创建新的 React 应用
 
@@ -38,7 +36,34 @@ sudo npm install -g tar
 * Create React App
 
 ``` shell
-npx create-react-app test-app
-cd test-app
+npx create-react-app learn-react-app
+cd learn-react-app
 npm start
+```
+
+### Hello World
+
+* 备份 index.js
+
+``` shell
+mv index.js index_backup.js
+```
+
+* 创建空白 index.js
+
+``` shell
+nvim index.js
+```
+
+* 添加内容
+
+``` javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+
+ReactDOM.render(
+  <h1>Hello, world!</h1>,
+  document.getElementById('root')
+);
 ```
