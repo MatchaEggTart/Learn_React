@@ -58,12 +58,38 @@ nvim index.js
 * 添加内容
 
 ``` javascript
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
 
-ReactDOM.render(
-  <h1>Hello, world!</h1>,
-  document.getElementById('root')
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+// import App form './App';
+import HelloWorld from './HelloWorld';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    {/** <App /> **/}
+    <HelloWorld />
+  </React.StrictMode>
 );
+
+reportWebVitals();
+
+```
+
+* 创建 HelloWorld.js
+
+``` js
+
+function HelloWorld() {
+  return (
+    <h1>
+      Hello World!
+    </h1>
+  )
+}
+
+export default HelloWorld;
+
 ```
