@@ -6,13 +6,13 @@
 
 * 全局安装 create-react-app
 
-``` shell
+``` sh
 sudo npm install -g create-react-app
 ```
 
 * 查看npm 全局安装的包
 
-``` shell
+``` sh
 npm list -g --depth 0
 ```
 
@@ -20,13 +20,13 @@ npm list -g --depth 0
 
 * 如果出现
 
-``` shell
+``` sh
 npm WARN deprecated tar@2.2.2: This version of tar is no longer supported, and will not receive security updates. Please upgrade asap.
 ```
 
 * 解决方法
 
-``` shell
+``` sh
 # asap 尽快，升级就是了
 sudo npm install -g tar 
 ```
@@ -35,7 +35,7 @@ sudo npm install -g tar
 
 * Create React App
 
-``` shell
+``` sh
 npx create-react-app learn-react-app
 cd learn-react-app
 npm start
@@ -45,13 +45,13 @@ npm start
 
 * 备份 index.js
 
-``` shell
-mv index.js index_backup.js
+``` sh
+mv index.js index-backup.js
 ```
 
 * 创建空白 index.js
 
-``` shell
+``` sh
 nvim index.js
 ```
 
@@ -93,3 +93,11 @@ function HelloWorld() {
 export default HelloWorld;
 
 ```
+
+* 网址
+
+* http://localhost:3000/
+
+### JSX
+
+* 想要使用 JSX 就需要添加 babel
