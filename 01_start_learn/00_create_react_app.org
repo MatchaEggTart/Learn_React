@@ -28,7 +28,7 @@
    #+end_src
 
 3. 添加 <script>标签，引入 react，需要在 </body>结束标签前
-
+   
    #+begin_src html
      <!-- 加载 React。-->                                                                            
      <!-- 注意: 部署时，将 "development.js" 替换为 "production.min.js"。-->                          
@@ -137,5 +137,23 @@ npm WARN deprecated tar@2.2.2: This version of tar is no longer supported, and w
 #+end_quote
 
 可能使用 npm update tar -g （全局更新） 或 npm update tar --save（项目内更新）解决吧？
+
+** Create a New React App
+
+*** WHAT
+
+使用 create-react-app 创建[[https://react.docschina.org/docs/glossary.html#single-page-application][单页应用]]
+
+*** HOW
+
+使用 npx 调用 create-react-app 创建应用
+
+#+begin_src shell
+  npx create-react-app learn-react-app
+  cd learn-react-app
+  npm start
+#+end_src
+
+第一时间需要创建 .gitignore 文件，可以使用 [[https://www.toptal.com/developers/gitignore][gitignore.io]] 来快速生成
 
 
