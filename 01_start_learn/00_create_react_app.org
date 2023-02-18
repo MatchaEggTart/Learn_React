@@ -1,0 +1,28 @@
+* Start
+
+** Add React to HTML
+
+*** WHAT
+
+
+** npx
+
+*** WHAT
+
+npx 主要用于命令行的寻址等辅助功能上（包执行器），而 npm 是管理依赖的
+npm -g install 会实现全局安装，但是 npx 可以临时安装 可执行依赖包，不用全局安装
+
+*** HOW
+
+#+begin_src shell
+  npx create-react-app learn-react-app
+#+end_src
+
+*** ATTENTION
+
+**** npm WARN deprecated tar@2.2.2: This version of tar is no longer supported, and will not receive security updates. Please upgrade asap.
+
+可能使用 npm update tar -g （全局更新） 或 npm update tar --save（项目内更新）解决吧？
+
+* 
+
