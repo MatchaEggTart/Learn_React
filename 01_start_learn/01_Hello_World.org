@@ -1,0 +1,48 @@
+* Hello World
+
+** 备份 index.js
+
+*** HOW
+
+#+begin_src shell
+  cp index.js index-backup.js
+#+end_src
+
+** 创建 HelloWorld.js
+
+*** HOW
+
+#+begin_src js
+  function HelloWorld() {
+    return (
+      <h1>
+        Hello World!
+      </h1>
+    )
+  }
+
+  export default HelloWorld;
+#+end_src
+
+** 自己写一个 index.js
+
+*** HOW
+
+#+begin_src js
+  import React from 'react';
+  import ReactDOM from 'react-dom/client';
+  import reportWebVitals from './reportWebVitals';
+
+  import HelloWorld from './HelloWorld';
+
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+
+  root.render(
+    <React.StrictMode>
+      <HelloWorld />
+    </React.StrictMode>
+  )
+
+  reportWebVitals();
+#+end_src
+

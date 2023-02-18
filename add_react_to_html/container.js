@@ -16,8 +16,10 @@ setInterval(c, 1000);
 
 const element = (
   <div>
-  <h1>Hello, World!</h1>
+  <h1>Hello World!</h1>
   </div>
 );
 
-ReactDOM.createRoot(document.getElementById('react-container')).render(element);
+// ReactDOM.createRoot(document.getElementById('react-container')).render(element);
+const root = ReactDOM.createRoot(document.getElementById('react-container'));
+root.render(element);
