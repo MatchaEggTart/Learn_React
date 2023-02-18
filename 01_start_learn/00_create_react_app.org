@@ -93,11 +93,28 @@
    原因在于 setInterval()，多次调用 function c 导致ReactDOM.createRoot()多次使用，但实际上 createRoot()只能使用一次，所以应该修改 container.js
 
    #+begin_src js
+     /*
+     function c() {
+       const element = (
+         <div>
+         <h1>Hello, World!</h1>
+         <h2>It is {new Date().toLocaleTimeString()}.</h2>
+         </div>
+       );
+       // ReactDOM.render(element, document.getElementById('react-container'));
+       const container = ReactDOM.createRoot(document.getElementById('react-container'));
+       container.render(element);
+     }
+
+     setInterval(c, 1000);
+     */
+
      const element = (
        <div>
        <h1>Hello, World!</h1>
        </div>
      );
+
      ReactDOM.createRoot(document.getElementById('react-container')).render(element);
    #+end_src
    
@@ -120,4 +137,5 @@ npm WARN deprecated tar@2.2.2: This version of tar is no longer supported, and w
 #+end_quote
 
 可能使用 npm update tar -g （全局更新） 或 npm update tar --save（项目内更新）解决吧？
+
 

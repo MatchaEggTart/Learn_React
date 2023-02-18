@@ -10,9 +10,10 @@ function c() {
   const container = ReactDOM.createRoot(document.getElementById('react-container'));
   container.render(element);
 }
-*/
 
 setInterval(c, 1000);
+*/
+
 const element = (
   <div>
   <h1>Hello, World!</h1>
