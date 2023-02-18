@@ -1,8 +1,10 @@
-* Install Tools
+* Perparation
 
-** Install Node.js
+** Install Tools
 
-*** HOW
+*** Install Node.js
+
+**** HOW
 
 shell
 
@@ -11,9 +13,9 @@ shell
   node -v
 #+end_src
 
-** Setting mirror source
+*** Setting mirror source
 
-*** HOW
+**** HOW
 
 shell
 
@@ -22,9 +24,9 @@ shell
   npm config get registry
 #+end_src
 
-** Install Yarn
+*** Install Yarn
 
-*** HOW
+**** HOW
 
 shell
 
@@ -33,13 +35,13 @@ shell
   yarn -v
 #+end_src
 
-** Install [[https://github.com/facebook/create-react-app][Create React App]]
+*** Install [[https://github.com/facebook/create-react-app][Create React App]]
 
-*** WHAT
+**** WHAT
 
 如果之前已经安装过 Create React App（npm install -g create-react-app），我们建议你卸载掉，然后使用 npx
 
-*** HOW
+**** HOW
 
 uninstall
 
@@ -49,9 +51,9 @@ uninstall
   yarn global remove create-react-app
 #+end_src
 
-** Check npm package is installed
+*** Check npm package is installed
 
-*** HOW
+**** HOW
 
 shell
 
