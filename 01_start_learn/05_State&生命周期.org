@@ -158,4 +158,5 @@ State 与 props 类似，但是 state 是私有的，并且完全受控于当前
      root.render(<Clock />);
    #+end_src
 
+   接下来，我们会设置 Clock 的计时器并每秒更新它
 *** 
