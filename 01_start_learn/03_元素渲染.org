@@ -63,7 +63,6 @@ React 元素是[[https://en.wikipedia.org/wiki/Immutable_object][不可变对象
 根据我们已有的知识，更新 UI 唯一的方式是创建一个全新的元素，并将其传入 root.render()
 
 *** HOW
-
 1. 在html添加react
    #+begin_src js
      const root = ReactDOM.createRoot(
