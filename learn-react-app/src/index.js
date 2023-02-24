@@ -36,7 +36,7 @@ root.render(
       text={comment.text}
       author={comment.author}
     />
-    <Clock date={new Date()} />
+    <Clock />
   </React.StrictMode>
 )
 
