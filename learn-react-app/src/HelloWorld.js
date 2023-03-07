@@ -1,8 +1,8 @@
 function HelloWorld() {
   return (
-    <h1>
-      Hello World!
-    </h1>
+    <div className="'HelloWorld'">
+      <h1>Hello World!</h1>
+    </div>
   )
 }
 

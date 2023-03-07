@@ -1,5 +1,9 @@
 function Welcome(props) {
-  return <h1>Hello, {props.name}</h1>
+  return (
+    <div className="Welcome">
+      <h2>Hello, {props.name}</h2>
+    </div>
+  )
 }
 
 export default Welcome;

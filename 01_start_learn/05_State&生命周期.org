@@ -1,5 +1,6 @@
 * State & 生命周期
 
+
 ** State
 
 *** WHY
@@ -312,7 +313,7 @@ State 与 props 类似，但是 state 是私有的，并且完全受控于当前
        这一次，render() 方法中的 this.state.date 就不一样了，如此以来就会渲染输出更新过的时间。React 也会相应的更新 DOM
        
    (5) 一旦 Clock 组件从 DOM 中被移除，React 就会调用 componentWillUnmount() 生命周期方法，这样计时器就停止了
-
+   
    
 ** 正确地使用 State
 
@@ -459,3 +460,43 @@ FormattedDate 组件会在其 props 中接收参数 date，但是组件本身无
 每个 Clock 组件都会单独设置它自己的计时器并且更新它
 
 在 React 应用中，组件是有状态组件还是无状态组件属于组件实现的细节，它可能会随着时间的推移而改变。你可以在有状态的组件中使用无状态的组件，反之亦然
+
+
+
+* 理解
+
+** STATE
+
+*** WHAT
+
+这是一个组件内部创建的 私有对象
+
+它必须在 constructor 完成初赋值
+
+它必须使用 setState() 方法来改变 state 的值
+
+
+** setState
+
+*** WHAT
+
+改变 state 值的唯一方法
+
+它的参数可以是 函数，或对象，它会将对象传回state刷新state
+
+
+** setInterval
+
+*** WHAT
+
+为什么要使用匿名函数？
+
+JavaScript存在作用域链，由内向外依次查找。内部可以访问其上层的函数和变量，而外部却不能访问内部的函数和变量
+
+JavaScript有一个预编译处理，首先对函数和变量进行预编译。也就是说其函数和变量作用域是在其声明的时候确定的，而不是在执行的时候确定
+
+当setInterval把"fun()"执行环境换为全局（详细见：拓展）的后，对fun的调用是无效的
+
+因为全局不能访问局部的函数和变量。window.onload相对于window来说就是局部的
+
+局部（组件）想使用 setInterval 必须使用 箭头函数来定义this，然后才能调用内部函数

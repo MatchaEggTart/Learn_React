@@ -1,8 +1,9 @@
 function Avatar(props) {
   return (
-    <img className="Avatar"
-	 src={props.user.avatarUrl}
-	 alt={props.user.name}
+    <img
+      alt={props.user.name}
+      src={props.user.avatarUrl}
+      className="Avatar"
     />
   )
 }

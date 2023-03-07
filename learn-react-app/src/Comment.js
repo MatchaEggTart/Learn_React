@@ -1,18 +1,27 @@
 import UserInfo from './UserInfo';
 
+const comment = {
+  date: new Date(),
+  text: 'I hope you enjoy learning React!',
+  author: {
+    name: 'Hello Kitty',
+    avatarUrl: 'https://placekitten.com/g/64/64',
+  },
+};
+
 function formatDate(date) {
   return date.toLocaleDateString();
 }
 
-function Comment(props) {
+function Comment() {
   return (
     <div className="Comment">
-      <UserInfo user={props.author} />
+      <UserInfo user={comment.author}/>
       <div className="Comment-text">
-	{props.text}
+	{comment.text}
       </div>
       <div className="Comment-date">
-	{formatDate(props.date)}
+	{formatDate(comment.date)}
       </div>
     </div>
   )

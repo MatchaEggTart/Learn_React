@@ -1,5 +1,6 @@
 * Start
 
+
 ** Add React to HTML
 
 *** WHAT
@@ -124,6 +125,7 @@
      }
      setInterval(tick, 1000);
    #+end_src
+
    
 ** npx
 
@@ -146,6 +148,7 @@ npm WARN deprecated tar@2.2.2: This version of tar is no longer supported, and w
 #+end_quote
 
 可能使用 npm update tar -g （全局更新） 或 npm update tar --save（项目内更新）解决吧？
+
 
 ** Create a New React App
 
