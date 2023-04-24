@@ -1,4 +1,4 @@
-import UserInfo from './UserInfo';
+import UserInfo from "./UserInfo";
 
 const comment = {
   date: new Date(),
@@ -9,10 +9,6 @@ const comment = {
   },
 };
 
-function formatDate(date) {
-  return date.toLocaleDateString();
-}
-
 function Comment() {
   return (
     <div className="Comment">
@@ -21,7 +17,7 @@ function Comment() {
 	{comment.text}
       </div>
       <div className="Comment-date">
-	{formatDate(comment.date)}
+	{comment.date.toLocaleDateString()}
       </div>
     </div>
   )

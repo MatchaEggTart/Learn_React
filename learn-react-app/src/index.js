@@ -8,6 +8,8 @@ import GetGreeting from './GetGreeting';
 import Welcome from './Welcome';
 import Comment from './Comment';
 import Clock from './Clock';
+import Form from './Form';
+import Toggle from './Toggle';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -17,9 +19,10 @@ root.render(
     <FormatName />
     <GetGreeting />
     <Welcome name="Sara" />
-    <Welcome name="Cahal" />
     <Comment />
     <Clock />
+    <Form />
+    <Toggle />
   </React.StrictMode>
 )
 

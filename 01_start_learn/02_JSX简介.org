@@ -157,6 +157,7 @@ React 不强制要求使用 JSX，但是大多数人发现，在 JavaScript 代�
 
 例如，JSX 里的 class 变成了 className，而 tabindex 则变为 tabIndex
 
+
 ** 使用 JSX 指定子元素
 
 *** WHAT

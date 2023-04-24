@@ -1,7 +1,7 @@
 function Welcome(props) {
   return (
     <div className="Welcome">
-      <h2>Hello, {props.name}</h2>
+      <h1>Welcome, {props.name} !</h1>
     </div>
   )
 }

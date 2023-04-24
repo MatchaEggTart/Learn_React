@@ -1,5 +1,5 @@
 const user = {
-  firstName: 'Harper',
+  firstName: 'Harpez',
   lastName: 'Perez'
 }
 
@@ -9,10 +9,10 @@ function formatName(user) {
 
 const element = (
   <div className="FormatName">
-    <h1>{formatName(user)}</h1>
+    <h2>{formatName(user)}</h2>
     <span>1 + 2 = {1 + 2}</span>
   </div>
-);
+)
 
 function FormatName() {
   return element;

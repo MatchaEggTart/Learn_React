@@ -422,14 +422,14 @@ State 与 props 类似，但是 state 是私有的，并且完全受控于当前
 
 组件可以选择把它的 state 作为 props 向下传递到它的子组件中：
 
-#+begin_src js
+#+begin_src html
   <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
 #+end_src
 
 这对于自定义组件同样适用：
 
-#+begin_src js
-<FormattedDate date={this.state.date} />
+#+begin_src html
+  <FormattedDate date={this.state.date} />
 #+end_src
 
 FormattedDate 组件会在其 props 中接收参数 date，但是组件本身无法知道它是来自于 Clock 的 state，或是 Clock 的 props，还是手动输入的
@@ -465,6 +465,7 @@ FormattedDate 组件会在其 props 中接收参数 date，但是组件本身无
 
 * 理解
 
+
 ** STATE
 
 *** WHAT
@@ -489,7 +490,7 @@ FormattedDate 组件会在其 props 中接收参数 date，但是组件本身无
 
 *** WHAT
 
-为什么要使用匿名函数？
+为什么要使用箭头函数？
 
 JavaScript存在作用域链，由内向外依次查找。内部可以访问其上层的函数和变量，而外部却不能访问内部的函数和变量
 
@@ -500,3 +501,53 @@ JavaScript有一个预编译处理，首先对函数和变量进行预编译。�
 因为全局不能访问局部的函数和变量。window.onload相对于window来说就是局部的
 
 局部（组件）想使用 setInterval 必须使用 箭头函数来定义this，然后才能调用内部函数
+
+查询：箭头函数绑定 this
+
+
+
+** 自己写
+
+*** HOW
+
+#+begin_src js
+  import React from 'react';
+
+  class Clock extends React.Component {
+
+    constructor(props) {
+      super(props);
+      this.state = {
+        date: new Date()
+      }
+    }
+
+    tick() {
+      this.setState({
+        date: new Date()
+      })
+      // 需要根据上一个state改变的时候，需要使用prevState
+      // 不需要就直接改
+    }
+
+    componentDidMount() {
+      this.timeID = setInterval(() => this.tick(), 1000);
+    }
+
+    componentWillUnmount() {
+      clearInterval(this.timeID);
+    }
+  
+    render() {
+      return (
+        <div className="Clock">
+          <h2>
+            {this.state.date.toLocaleTimeString()}
+          </h2>
+        </div>
+      )
+    }
+  }
+
+  export default Clock;
+#+end_src

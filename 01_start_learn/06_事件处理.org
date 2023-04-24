@@ -1,5 +1,6 @@
 * 事件处理
 
+
 ** React 元素的事件处理
 
 *** WHAT
@@ -56,6 +57,8 @@ React 事件的命名采用小驼峰式（camelCase），而不是纯小写
 #+end_src
 
 在这里，e 是一个合成事件。React 根据 [[https://www.w3.org/TR/DOM-Level-3-Events/][W3C 规范]] 定义这些合成事件，所以你不需要担心跨浏览器的兼容性问题
+
+e 是事件对象
 
 React 事件与原生事件不完全相同。如果想了解更多，请查看 [[https://zh-hans.reactjs.org/docs/events.html][SyntheticEvent]] 参考指南
 
@@ -146,6 +149,87 @@ React 事件与原生事件不完全相同。如果想了解更多，请查看 [
 在大多数情况下，这没什么问题，但如果该回调函数作为 prop 传入子组件时，这些组件可能会进行额外的重新渲染
 
 我们通常建议在构造器中绑定或使用 class fields 语法来避免这类性能问题
+
+*** HOW
+
+完整版
+
+#+begin_src js
+  function Form() {
+    // 虽然要用e，但事实证明还是只是参数名，随意
+    function handleSubmit(event) {
+      event.preventDefault();
+      console.log('You Click submit.');
+    }
+  
+    return (
+      <div className="Form">
+        <form onSubmit={handleSubmit}>
+          <button type="submit">Submit</button>
+        </form>
+        <br/>
+        <a href="https://www.baidu.com" onClick={handleSubmit}>去百度?(使用了e.preventDefault())</a>
+        <br/>
+        <a href="https://www.baidu.com">去百度?</a>
+        <br/>
+      </div>
+    )
+  }
+
+  export default Form;
+#+end_src
+
+#+begin_src js
+  import React from 'react';
+
+  class Toggle extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {isToggleOn: true};
+      // 为了方法中的this指向组件实例
+      this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick() {
+      // 您经常会看到开发人员通过以下方式更新状态
+      // 这比下面的方法不可靠，因为状态可以异步更新，并且我们不应该依赖其值来计算下一个状态
+      /*
+        this.setState({
+        isToggleOn: !this.state.isToggleOn
+        })
+      ,*/
+      // 加括号的函数体返回对象字面量表达式：
+      // prevstate 只是型参名，叫什么都每所谓，这里只是塑造功能，实现还是靠react
+      this.setState(a => ({
+        isToggleOn: !a.isToggleOn
+      }))
+      // 完整版
+      /*
+      this.setState(function(prevState) {
+        return {isToggleOn: !prevState.isToggleOn}
+      })
+      ,*/  
+    }
+
+    render() {
+      return (
+        <button onClick={this.handleClick}>
+          {this.state.isToggleOn? 'ON' : 'OFF'}
+        </button>
+      )
+    }
+  }
+
+  export default Toggle;
+#+end_src
+
+*** ATTENTION
+
+#+begin_quote
+Expected an assignment or function call and instead saw an expression  no-unused-expressions
+#+end_quote
+
+箭头函数后面不能是大括号{}，因为会看作代码快，如果要返回对象，请假如圆括号，即 => ()
 
 
 ** 向事件处理程序传递参数
